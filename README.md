@@ -1,6 +1,6 @@
 # Bin Day Checker - Home Assistant Addon
 
-Check if today is bin day based on even/odd week patterns.
+Check if today is bin day based on week frequency.
 
 ## Installation
 
