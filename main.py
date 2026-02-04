@@ -3,6 +3,7 @@ import argparse
 import json
 import os
 from flask import Flask, jsonify
+from waitress import serve
 
 def isBinDay(start_week=1, frequency=2, days=None):
     if days is None:
@@ -50,7 +51,8 @@ def main():
             })
         
         print(f"Starting Bin Day Checker service (start_week={start_week}, frequency={frequency}, days={days})")
-        app.run(host='0.0.0.0', port=8099)
+        print("Listening on http://0.0.0.0:8099")
+        serve(app, host='0.0.0.0', port=8099)
     else:
         # Run as CLI tool
         parser = argparse.ArgumentParser(description='Check if today is a bin day.')
