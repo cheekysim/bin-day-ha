@@ -1,0 +1,19 @@
+{
+  "name": "Bin Day Checker",
+  "version": "2.0.0",
+  "slug": "bin_day_checker",
+  "description": "Check if today is bin day based on week pattern",
+  "arch": ["aarch64", "amd64", "armhf", "armv7", "i386"],
+  "startup": "application",
+  "boot": "auto",
+  "options": {
+    "start_week": 1,
+    "frequency": 2,
+    "days": [2, 3]
+  },
+  "schema": {
+    "start_week": "int",
+    "frequency": "int",
+    "days": ["int"]
+  }
+}
