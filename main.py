@@ -25,7 +25,6 @@ def main():
         with open(options_file, 'r') as f:
             options = json.load(f)
         start_week = options.get('start_week', 0)
-        start_week += 1 # Offset so week starts with 1 not 0
         frequency = options.get('frequency', 2)
         days = options.get('days', [2, 3])
         
