@@ -40,7 +40,7 @@ Add to your `configuration.yaml`:
 ```yaml
 sensor:
   - platform: rest
-    resource: http://YOUR_HA_IP:8099/status
+    resource: http://local-bin-day-checker:8099/status
     name: Bin Day
     value_template: "{{ value_json.bin_day }}"
     json_attributes:

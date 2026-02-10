@@ -24,7 +24,8 @@ def main():
     if os.path.exists(options_file):
         with open(options_file, 'r') as f:
             options = json.load(f)
-        start_week = options.get('start_week', 1)
+        start_week = options.get('start_week', 0)
+        start_week += 1 # Offset so week starts with 1 not 0
         frequency = options.get('frequency', 2)
         days = options.get('days', [2, 3])
         
@@ -52,6 +53,10 @@ def main():
         
         print(f"Starting Bin Day Checker service (start_week={start_week}, frequency={frequency}, days={days})")
         print("Listening on http://0.0.0.0:8099")
+        
+        is_bin_day = isBinDay(start_week=start_week, frequency=frequency, days=days)
+        print(f"bin_day: {is_bin_day}\nstart_week: {start_week}\nfrequency: {frequency}\ndays: {days}\nmessage: {'Today is a bin day.' if is_bin_day else 'Today is not a bin day.'}")
+
         serve(app, host='0.0.0.0', port=8099)
     else:
         # Run as CLI tool
